@@ -1,50 +1,51 @@
 <template>
-  <Layout>
-    <h1>About me</h1>
-     <div>
-        <g-image
-            ref="picture"
-            :src="picture"
-            alt=""
-            class="about-card-picture"
-        />
-    </div>
+    <Layout>
+        <h1>About me</h1>
+        <div>
+            <g-image
+                ref="picture"
+                :src="picture"
+                alt=""
+                class="about-card-picture"
+            />
+        </div>
 
-    <div class='about-name'>
-        <p class="text-bold">{{ firstname }} {{ lastname }}</p>
-    </div>
+        <div class="about-name">
+            <p class="text-bold">
+                {{ firstname }} {{ lastname }}
+            </p>
+        </div>
 
-    <div class='about-excerpt'>
-        <p>{{ excerpt }}</p>
-    </div>
+        <div class="about-excerpt">
+            <p>{{ excerpt }}</p>
+        </div>
 
-    <g-link
-        v-for="tech in technologies"
-        :key="`about-technologie-${tech.text}`"
-        :to="tech.link"
-        class="about-technologie-item"
-    >
-        <g-image
-            class="about-technologie-item-picture"
-            :src="tech.picture"
-            alt=""
-        />
-        <h2 class="about-technologie-item-title">
-            {{ tech.text }}
-        </h2>
-    </g-link>
+        <g-link
+            v-for="tech in technologies"
+            :key="`about-technologie-${tech.text}`"
+            :to="tech.link"
+            class="about-technologie-item"
+        >
+            <g-image
+                class="about-technologie-item-picture"
+                :src="tech.picture"
+                alt=""
+            />
+            <h2 class="about-technologie-item-title">
+                {{ tech.text }}
+            </h2>
+        </g-link>
 
-    <li
-        v-for="(post, index) in allCreations"
-        :key="`about-creations-${index}`"
-        class="about-creations-item"
-    >
-        <h2 class="about-creations-item-title">
-            {{ post.node.title }}
-        </h2>
-    </li>
-
-  </Layout>
+        <li
+            v-for="(post, index) in allCreations"
+            :key="`about-creations-${index}`"
+            class="about-creations-item"
+        >
+            <h2 class="about-creations-item-title">
+                {{ post.node.title }}
+            </h2>
+        </li>
+    </Layout>
 </template>
 
 <script>
@@ -66,7 +67,7 @@ export default {
                 {
                     link: '/TechnologieFiltered/nodejs',
                     text: 'NodeJS',
-                    picture: nodejs
+                    picture: nodejs,
                 },
                 {
                     link: '/TechnologieFiltered/vuejs',
@@ -89,8 +90,8 @@ export default {
         },
     },
     metaInfo: {
-        title: 'About us'
-    }
+        title: 'About us',
+    },
 }
 </script>
 

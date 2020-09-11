@@ -12,7 +12,7 @@ const slugReplacement = {
     lower: true,
 }
 
-module.exports = function (api) {
+module.exports = function(api) {
     api.loadSource(({ addCollection }) => {
         // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
     })
@@ -26,7 +26,7 @@ module.exports = function (api) {
         return options
     })
 
-    api.createPages(async ({
+    api.createPages(async({
         graphql,
         createPage,
     }) => {
