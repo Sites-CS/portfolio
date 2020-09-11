@@ -20,6 +20,8 @@ module.exports = {
                 SwitchCase: 1,
             },
         ],
+        'quote-props': ['error', 'as-needed'],
+        quotes: ['error', 'single'],
         semi: ['error', 'never'],
         'space-before-function-paren': ['error', 'never'],
         'vue/html-indent': ['error', 4],
