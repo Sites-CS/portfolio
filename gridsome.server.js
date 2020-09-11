@@ -18,7 +18,7 @@ module.exports = function (api) {
     })
 
     api.onCreateNode(options => {
-        if (options.internal.typeName === 'Post') {
+        if (options.internal.typeName === 'Post' || options.internal.typeName === 'Categories' || options.internal.typeName === 'Technologies') {
             options.slug = slugify(options.title, slugReplacement)
             options.coverImage = options.coverImage || ''
         }
@@ -30,31 +30,95 @@ module.exports = function (api) {
         graphql,
         createPage,
     }) => {
-        const { data } = await graphql(`{
-        allPost {
-            edges {
-                node {
-                    id
-                    title
-                    slug
-                    excerpt
-                    date(format: "DD/MM/YYYY")
-                    coverImage
+        const { data: postsData } = await graphql(
+            `{
+                posts: allPost {
+                    edges {
+                        node {
+                            id
+                            title
+                            slug
+                            excerpt
+                            date(format: "DD/MM/YYYY")
+                            coverImage
+                        }
+                    }
                 }
-            }
-        }
-    }`)
+            }`
+        )
 
-        data.allPost.edges.forEach(({
-            node,
-        }) => {
-            createPage({
-                path: `/creations/${node.slug}`,
-                component: './src/templates/Creation.vue',
-                context: {
-                    recordId: node.id,
-                },
+        if (postsData) {
+            postsData.posts.edges.forEach(({
+                node,
+            }) => {
+                createPage({
+                    path: `/creations/${node.slug}`,
+                    component: './src/templates/Creation.vue',
+                    context: {
+                        recordId: node.id,
+                    },
+                })
             })
-        })
+        }
+
+        const { data: categoriesData } = await graphql(
+            `{
+                categories: allCategories {
+                    edges {
+                        node {
+                            id
+                            slug
+                            title
+                            excerpt
+                            coverImage
+                        }
+                    }
+                }
+            }`
+        )
+
+        if (categoriesData) {
+            categoriesData.categories.edges.forEach(({
+                node,
+            }) => {
+                createPage({
+                    path: `/categories/${node.slug}`,
+                    component: './src/templates/Categories.vue',
+                    context: {
+                        recordId: node.id,
+                    },
+                })
+            })
+        }
+
+        const { data: technologiesData } = await graphql(
+            `{
+                technologies: allTechnologies {
+                    edges {
+                        node {
+                            id
+                            slug
+                            title
+                            excerpt
+                            coverImage
+                        }
+                    }
+                }
+            }`
+        )
+
+        if (technologiesData) {
+            technologiesData.technologies.edges.forEach(({
+                node,
+            }) => {
+                createPage({
+                    path: `/technologies/${node.slug}`,
+                    component: './src/templates/Categories.vue',
+                    context: {
+                        recordId: node.id,
+                    },
+                })
+            })
+        }
     })
 }

@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: Sites-CS/portfolio
-  branch: master
+  branch: base
 
 media_folder: "static/uploads"
 public_folder: "/uploads"
@@ -20,3 +20,29 @@ collections:
       - {label: "Date de publication", name: "date", widget: "date"}
       - {label: "Lien du site", name: "link", widget: "string"}
       - {label: "Image de couverture", name: "coverImage", widget: "image", required: false}
+  - name: "categories"
+    label: "Catégories"
+    folder: "categories"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Titre", name: "title", widget: "string"}
+      - {label: "Description", name: "excerpt", widget: "string"}
+      - {label: "Image de couverture", name: "coverImage", widget: "image"}
+  - name: "technologies"
+    label: "Technologies"
+    folder: "technologies"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Titre", name: "title", widget: "string"}
+      - {label: "Description", name: "excerpt", widget: "string"}
+      - {label: "Image de couverture", name: "coverImage", widget: "image"}
+  - name: "blocs"
+    label: "Blocs de texte"
+    folder: "blocs"
+    create: true
+    id: "{{id}}"
+    fields:
+      - {label: "Nom", name: "name", widget: "string"}
+      - {label: "Contenu", name: "content", widget: "string"}

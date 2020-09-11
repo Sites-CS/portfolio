@@ -47,6 +47,30 @@ module.exports = {
             },
         },
         {
+            use: '@gridsome/source-filesystem',
+            options: {
+                typeName: 'Categories',
+                baseDir: './categories',
+                path: '*.md',
+            },
+        },
+        {
+            use: '@gridsome/source-filesystem',
+            options: {
+                typeName: 'Technologies',
+                baseDir: './technologies',
+                path: '*.md',
+            },
+        },
+        {
+            use: '@gridsome/source-filesystem',
+            options: {
+                typeName: 'Blocs',
+                baseDir: './blocs',
+                path: '*.md',
+            },
+        },
+        {
             use: `gridsome-plugin-netlify-cms`,
             options: {
                 publicPath: `/admin`,
