@@ -1,5 +1,5 @@
 <template>
-    <Layout>
+    <layout>
         <h1>About me</h1>
         <div>
             <g-image
@@ -23,8 +23,7 @@
         <technologies-list :list="allTechnologies" />
 
         <creations-list :list="allCreations" />
-
-    </Layout>
+    </layout>
 </template>
 
 <script>

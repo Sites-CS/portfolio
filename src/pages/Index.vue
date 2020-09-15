@@ -1,5 +1,5 @@
 <template>
-    <Layout>
+    <layout>
         <!-- Learn how to use images here: https://gridsome.org/docs/images -->
         <g-image
             alt="Example image"
@@ -25,7 +25,7 @@
                 rel="noopener"
             >GitHub</a>
         </p>
-    </Layout>
+    </layout>
 </template>
 
 <script>
