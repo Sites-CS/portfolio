@@ -1,7 +1,7 @@
-import { shallowMount } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import ContactForm from '~/components/ContactForm'
 
-const wrapper = shallowMount(ContactForm)
+const wrapper = mount(ContactForm)
 
 const fields = [
     'name',
