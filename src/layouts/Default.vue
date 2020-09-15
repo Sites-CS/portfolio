@@ -17,6 +17,12 @@
                 >
                     About
                 </g-link>
+                <g-link
+                    class="nav__link"
+                    to="/contact/"
+                >
+                    Contact
+                </g-link>
             </nav>
         </header>
         <slot />

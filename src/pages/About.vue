@@ -20,21 +20,7 @@
             <p>{{ excerpt }}</p>
         </div>
 
-        <g-link
-            v-for="tech in technologies"
-            :key="`about-technologie-${tech.text}`"
-            :to="tech.link"
-            class="about-technologie-item"
-        >
-            <g-image
-                class="about-technologie-item-picture"
-                :src="tech.picture"
-                alt=""
-            />
-            <h2 class="about-technologie-item-title">
-                {{ tech.text }}
-            </h2>
-        </g-link>
+        <technologies-list />
 
         <li
             v-for="(post, index) in allCreations"
@@ -53,8 +39,12 @@ import picture from '~/assets/img/picture.jpg'
 // TODO: How to import dynamically theses logos ?
 import nodejs from '~/assets/img/nodejs_logo.png'
 import vuejs from '~/assets/img/vuejs_logo.png'
+import TechnologiesList from '~/components/TechnologiesList.vue'
 
 export default {
+    components: {
+        TechnologiesList,
+    },
     data() {
         return {
             picture: picture,
@@ -84,8 +74,6 @@ export default {
                 return []
             }
 
-            console.log(this.$page.posts.edges)
-
             return this.$page.posts.edges
         },
     },
@@ -103,6 +91,16 @@ export default {
           id
           title
           slug
+          excerpt
+          coverImage
+        }
+      }
+    }
+    technologies: allTechnologies {
+      edges {
+        node {
+          id
+          title
           excerpt
           coverImage
         }
