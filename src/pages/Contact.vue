@@ -12,8 +12,8 @@ export default {
         ContactForm,
     },
     metaInfo: {
-        title: 'Contact'
-    }
+        title: 'Contact',
+    },
 }
 </script>
 
