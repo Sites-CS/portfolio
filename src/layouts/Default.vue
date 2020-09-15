@@ -1,38 +1,74 @@
 <template>
     <div class="layout">
         <header class="header">
-            <strong>
-                <g-link to="/">{{ $static.metadata.siteName }}</g-link>
-            </strong>
-            <nav class="nav">
-                <g-link
-                    class="nav__link"
-                    to="/"
+            <b-navbar toggleable="lg">
+                <b-navbar-brand to="/">
+                    {{ $static.metadata.siteName }}
+                </b-navbar-brand>
+
+                <b-navbar-toggle target="nav-collapse" />
+
+                <b-collapse
+                    id="nav-collapse"
+                    is-nav
                 >
-                    Home
-                </g-link>
-                <g-link
-                    class="nav__link"
-                    to="/about/"
-                >
-                    About
-                </g-link>
-                <g-link
-                    class="nav__link"
-                    to="/contact/"
-                >
-                    Contact
-                </g-link>
-            </nav>
+                    <b-navbar-nav>
+                        <b-nav-item
+                            to="/"
+                        >
+                            Home
+                        </b-nav-item>
+
+                        <b-nav-item
+                            to="/about/"
+                        >
+                            About
+                        </b-nav-item>
+
+                        <b-nav-item
+                            to="/contact/"
+                        >
+                            Contact
+                        </b-nav-item>
+                    </b-navbar-nav>
+                </b-collapse>
+            </b-navbar>
         </header>
-        <slot />
+
+        <b-container>
+            <slot />
+        </b-container>
     </div>
 </template>
 
+<script>
+import {
+    BCollapse,
+    BContainer,
+    BNavbar,
+    BNavbarNav,
+    BNavbarBrand,
+    BNavbarToggle,
+    BNavItem,
+} from 'bootstrap-vue'
+
+export default {
+    components: {
+        BCollapse,
+        BContainer,
+        BNavbar,
+        BNavbarNav,
+        BNavbarBrand,
+        BNavbarToggle,
+        BNavItem,
+    },
+}
+</script>
+
 <static-query>
 query {
-  metadata {
-    siteName
-  }
+    metadata {
+        siteName
+    }
 }
 </static-query>

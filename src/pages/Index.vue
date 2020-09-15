@@ -13,23 +13,36 @@
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur excepturi labore tempore expedita, et iste tenetur suscipit explicabo! Dolores, aperiam non officia eos quod asperiores
         </p>
 
-        <p class="home-links">
-            <a
+        <b-nav class="home-links">
+            <b-nav-item
                 href="https://gridsome.org/docs/"
                 target="_blank"
                 rel="noopener"
-            >Gridsome Docs</a>
-            <a
+            >
+                Gridsome Docs
+            </b-nav-item>
+            <b-nav-item
                 href="https://github.com/gridsome/gridsome"
                 target="_blank"
                 rel="noopener"
-            >GitHub</a>
-        </p>
+            >
+                GitHub
+            </b-nav-item>
+        </b-nav>
     </layout>
 </template>
 
 <script>
+import {
+    BNav,
+    BNavItem,
+} from 'bootstrap-vue'
+
 export default {
+    components: {
+        BNav,
+        BNavItem,
+    },
     metaInfo: {
         title: 'Hello, world!',
     },

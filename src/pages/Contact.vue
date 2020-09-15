@@ -1,7 +1,7 @@
 <template>
-    <Layout>
+    <layout>
         <contact-form />
-    </Layout>
+    </layout>
 </template>
 
 <script>

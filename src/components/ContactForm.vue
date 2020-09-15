@@ -1,43 +1,56 @@
 <template>
-    <form @submit.prevent="submit">
+    <b-form @submit.prevent="submit">
         <!-- TODO: Show errors + success -->
 
-        <input
+        <b-form-input
             v-model="fields.name"
             type="text"
             name="name"
             required
-        >
+        />
 
-        <input
+        <b-form-input
             v-model="fields.email"
             type="email"
             name="email"
             required
-        >
+        />
 
-        <input
+        <b-form-input
             v-model="fields.subject"
             type="text"
             name="subject"
             required
-        >
+        />
 
-        <textarea
+        <b-form-textarea
             v-model="fields.message"
             name="message"
             required
         />
 
         <!-- TODO: i18n -->
-        <button type="submit">
+        <b-button type="submit">
             Submit
-        </button>
-    </form>
+        </b-button>
+    </b-form>
 </template>
 
 <script>
+import {
+    BButton,
+    BForm,
+    BFormInput,
+    BFormTextarea,
+} from 'bootstrap-vue'
+
 export default {
+    components: {
+        BButton,
+        BForm,
+        BFormInput,
+        BFormTextarea,
+    },
     data() {
         return {
             fields: {},

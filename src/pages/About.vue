@@ -11,7 +11,7 @@
         </div>
 
         <div class="about-name">
-            <p class="text-bold">
+            <p class="font-weight-bold">
                 {{ firstname }} {{ lastname }}
             </p>
         </div>
