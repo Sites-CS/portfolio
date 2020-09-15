@@ -3,3 +3,9 @@
     functions = "./functions"
     command = "gridsome build"
     publish = "dist"
+
+[dev]
+    framework = "#custom"
+    command = "gridsome develop"
+    targetPort = 8080
+    publish = "dist"
