@@ -20,7 +20,7 @@
             <p>{{ excerpt }}</p>
         </div>
 
-        <technologies-list />
+        <technologies-list :list="allTechnologies" />
 
         <li
             v-for="(post, index) in allCreations"
@@ -50,9 +50,6 @@ export default {
             excerpt: 'Ancien développeur .Net et auto-entrepreneur depuis début 2020, je suis un développeur backend dans l\'âme. En partenariat avec Sébastien JEAN, expert en technologies webs, spécialisé dans le frontend et auto-entrepreneur depuis 2012. Nous enchaînons les collaborations, ce qui me permet de me spécialiser dans le Web au côté d\'un cador dans le domaine. Mon expérience en tant que chef de projet et développeur lors de mes années chez Euro Info Developpement nous rend complémentaire. Nous sommes prêt à relever n\'importe quel défi technique. Je suis également intervenant/formateur sur des sujets relatif à la modélisation objet (UML, Desing pattern, ...), les bases de données (Merise, SQL, T-SQL,...), ou techniquement sur du langage .Net essentiellement. J\'étudierai toute proposition d\'intervention, j\'apprécie partager mes connaissances et faire collaborer des étudiants pour leur apprendre les bons reflexes à avoir en tant que futurs développeurs.',
         }
     },
-    created() {
-        console.log(this.$page)
-    },
     computed: {
         allCreations() {
             if (!this.$page.posts || !this.$page.posts.edges) {
@@ -60,6 +57,13 @@ export default {
             }
 
             return this.$page.posts.edges
+        },
+        allTechnologies() {
+            if (!this.$page.technologies || !this.$page.technologies.edges) {
+                return []
+            }
+
+            return this.$page.technologies.edges
         },
     },
     metaInfo: {

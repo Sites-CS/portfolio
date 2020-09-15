@@ -1,7 +1,7 @@
 <template>
     <div>
         <g-link
-            v-for="(tech, index) in allTechnologies"
+            v-for="(tech, index) in list"
             :key="`technologies-list-item-${index}`"
             :to="`technologies/${tech.node.slug}`"
             class="about-technologie-item"
@@ -21,15 +21,11 @@
 <script>
 
 export default {
-    computed: {
-        allTechnologies() {
-            if (!this.$page.technologies || !this.$page.technologies.edges) {
-                return []
-            }
-
-            return this.$page.technologies.edges
+    props: {
+        list: {
+            type: Array,
+            default: [],
         },
     },
-
 }
 </script>
