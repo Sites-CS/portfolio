@@ -22,25 +22,20 @@
 
         <technologies-list :list="allTechnologies" />
 
-        <li
-            v-for="(post, index) in allCreations"
-            :key="`about-creations-${index}`"
-            class="about-creations-item"
-        >
-            <h2 class="about-creations-item-title">
-                {{ post.node.title }}
-            </h2>
-        </li>
+        <creations-list :list="allCreations" />
+
     </Layout>
 </template>
 
 <script>
 import picture from '~/assets/img/picture.jpg'
 import TechnologiesList from '~/components/TechnologiesList.vue'
+import CreationsList from '~/components/CreationsList.vue'
 
 export default {
     components: {
         TechnologiesList,
+        CreationsList,
     },
     data() {
         return {
@@ -80,6 +75,7 @@ export default {
           id
           title
           slug
+          date(format: "DD/MM/YYYY")
           excerpt
           coverImage
         }
