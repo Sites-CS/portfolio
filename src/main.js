@@ -1,5 +1,13 @@
-// This is the main.js file. Import global CSS and scripts here.
-// The Client API can be used here. Learn more: gridsome.org/docs/client-api
+/**
+ * This is the main.js file. Import global CSS and scripts here.
+ * The Client API can be used here. Learn more: gridsome.org/docs/client-api
+ *
+ * We use tree shaking with Bootstrap
+ * @see https://bootstrap-vue.org/docs#tree-shaking-with-module-bundlers
+ */
+
+import 'normalize.css'
+import '~/assets/scss/all.scss'
 
 import DefaultLayout from '~/layouts/Default.vue'
 

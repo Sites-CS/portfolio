@@ -14,15 +14,21 @@ function addStyleResource(rule) {
         .loader('style-resources-loader')
         .options({
             patterns: [
+                path.resolve(__dirname, './src/assets/scss/_vars-override.scss'),
                 path.resolve(__dirname, './src/assets/scss/_vars.scss'),
                 path.resolve(__dirname, './src/assets/scss/_mixins.scss'),
+                path.resolve(__dirname, './node_modules/bootstrap/scss/_functions.scss'),
+                path.resolve(__dirname, './node_modules/bootstrap/scss/_variables.scss'),
+                path.resolve(__dirname, './node_modules/bootstrap/scss/_mixins.scss'),
             ],
         })
 }
 
 module.exports = {
+    // TODO: Use env?
     siteName: 'Portfolio',
-    siteUrl: 'https://www.portfolio-app.com',
+    // TODO: Use env
+    siteUrl: 'https://example.com',
     // icon: {
     //     favicon: 'src/favicon.png',
     // },
