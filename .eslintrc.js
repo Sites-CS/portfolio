@@ -20,6 +20,7 @@ module.exports = {
                 SwitchCase: 1,
             },
         ],
+        'no-unused-vars': 'error',
         'quote-props': ['error', 'as-needed'],
         quotes: ['error', 'single'],
         semi: ['error', 'never'],
