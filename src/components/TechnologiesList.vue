@@ -3,7 +3,7 @@
         <g-link
             v-for="(tech, index) in allTechnologies"
             :key="`technologies-list-item-${index}`"
-            :to="tech.node.link"
+            :to="`technologies/${tech.node.slug}`"
             class="about-technologie-item"
         >
             <g-image
