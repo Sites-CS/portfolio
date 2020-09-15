@@ -93,15 +93,3 @@ export default {
     }
   }
 </page-query>
-
-<style lang="scss">
-.about-name .text-bold {
-    font-weight: bold;
-    color: $color-primary;
-}
-
-.about-technologie-item-picture {
-    width: 50px;
-    height: 50px;
-}
-</style>

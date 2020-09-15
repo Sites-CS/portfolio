@@ -33,6 +33,3 @@ export default {
     }
   }
 </page-query>
-
-<style lang="scss">
-</style>
