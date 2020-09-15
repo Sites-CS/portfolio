@@ -24,6 +24,7 @@ module.exports = {
         quotes: ['error', 'single'],
         semi: ['error', 'never'],
         'space-before-function-paren': ['error', 'never'],
+        'vue/component-name-in-template-casing': ['error', 'kebab-case'],
         'vue/html-indent': ['error', 4],
     },
 }
