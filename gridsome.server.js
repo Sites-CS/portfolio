@@ -13,10 +13,6 @@ const slugReplacement = {
 }
 
 module.exports = function(api) {
-    api.loadSource(({ addCollection }) => {
-        // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
-    })
-
     api.onCreateNode(options => {
         if (options.internal.typeName === 'Post' || options.internal.typeName === 'Categories' || options.internal.typeName === 'Technologies') {
             options.slug = slugify(options.title, slugReplacement)
