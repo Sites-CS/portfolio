@@ -2,3 +2,9 @@ img {
     height: auto;
     max-width: 100%;
 }
+
+.form-control {
+    &:invalid {
+        box-shadow: none;
+    }
+}

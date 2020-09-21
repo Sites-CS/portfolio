@@ -1,0 +1,17 @@
+{
+    "contact": {
+        "fields": {
+            "name": "Votre nom",
+            "email": "Votre adresse e-mail",
+            "subject": "Le sujet de votre demande",
+            "message": "Votre message"
+        },
+        "feedback": {
+            "error": "Une erreur est survenue lors de l’envoi de l’e-mail : {error}",
+            "success": "Merci pour votre demande de contact {name} ! À très bientôt !",
+            "required": "Ce champ est obligatoire.",
+            "email": "Le format de l’adresse e-mail est incorrect"
+        },
+        "submit": "Envoyer"
+    }
+}
