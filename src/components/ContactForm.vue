@@ -209,7 +209,7 @@ export default {
                         })
                         .catch(error => {
                             this.error = this.$t('contact.feedback.error', { error })
-                            reject(err)
+                            reject(error)
                         })
                         .finally(() => {
                             this.isSending = false
