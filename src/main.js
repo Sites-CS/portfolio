@@ -9,9 +9,13 @@
 import 'normalize.css'
 import '~/assets/scss/all.scss'
 
+import VueScrollTo from 'vue-scrollto'
+
 import DefaultLayout from '~/layouts/Default.vue'
 
 export default function(Vue) {
+    Vue.use(VueScrollTo)
+
     // Set default layout as a global component
     Vue.component('Layout', DefaultLayout)
 }

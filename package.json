@@ -20,7 +20,8 @@
     "netlify-cms": "^2.10.56",
     "nodemailer": "^6.4.11",
     "normalize.css": "^8.0.1",
-    "slugme": "^1.1.1"
+    "slugme": "^1.1.1",
+    "vue-scrollto": "^2.18.2"
   },
   "devDependencies": {
     "@vue/test-utils": "^1.1.0",
