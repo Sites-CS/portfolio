@@ -41,7 +41,7 @@ function getEmailContent(payload, noHtml) {
     return content
 }
 
-exports.handler = function(event, context, callback) {
+exports.handler = function (event, context, callback) {
     // only allow POST requests
     if (event.httpMethod !== 'POST') {
         return callback(null, {
