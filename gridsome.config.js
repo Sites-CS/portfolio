@@ -82,6 +82,21 @@ module.exports = {
                 publicPath: '/admin',
             },
         },
+        {
+            use: 'gridsome-plugin-i18n',
+            options: {
+                locales: [
+                    'fr',
+                ],
+            },
+            fallbackLocale: 'fr',
+            defaultLocale: 'fr',
+            rewriteDefaultLanguage: false,
+            messages: {
+                // Messages are declared in main.js
+                // See https://github.com/daaru00/gridsome-plugin-i18n#hot-reload
+            },
+        },
     ],
     chainWebpack(config) {
         // Load variables for all vue-files
