@@ -1,5 +1,5 @@
 ---
-title: Projet B
+title: Projet E
 excerpt: Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, vero
   cupiditate iste quisquam iusto perferendis in fugiat sed ad, qui eligendi
   optio eaque doloribus reprehenderit provident veritatis omnis, laudantium
@@ -8,7 +8,8 @@ date: 22/09/2020
 link: https://www.example.com
 coverImage: /uploads/1920x1080.png
 categories:
-  - applications_mobiles
+  - sites_vitrines
+  - interface_dadministration
 text: >-
   Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, vero
   cupiditate iste quisquam iusto perferendis in fugiat sed ad, qui eligendi
