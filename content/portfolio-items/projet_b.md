@@ -4,7 +4,7 @@ excerpt: Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, vero
   cupiditate iste quisquam iusto perferendis in fugiat sed ad, qui eligendi
   optio eaque doloribus reprehenderit provident veritatis omnis, laudantium
   deleniti.
-date: 22/09/2020
+date: 2020-09-22T22:00:00.000Z
 link: https://www.example.com
 coverImage: /uploads/1920x1080.png
 categories:
