@@ -1,5 +1,5 @@
 ---
-title: Projet C
+title: Projet D
 excerpt: Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, vero
   cupiditate iste quisquam iusto perferendis in fugiat sed ad, qui eligendi
   optio eaque doloribus reprehenderit provident veritatis omnis, laudantium
