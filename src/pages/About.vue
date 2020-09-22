@@ -46,11 +46,11 @@ export default {
     },
     computed: {
         allCreations() {
-            if (!this.$page.posts || !this.$page.posts.edges) {
+            if (!this.$page.portfolioItems || !this.$page.portfolioItems.edges) {
                 return []
             }
 
-            return this.$page.posts.edges
+            return this.$page.portfolioItems.edges
         },
         allTechnologies() {
             if (!this.$page.technologies || !this.$page.technologies.edges) {
@@ -68,7 +68,7 @@ export default {
 
 <page-query>
   query {
-    posts: allPost {
+    portfolioItems: allPortfolioItem {
       edges {
         node {
           id
@@ -80,7 +80,7 @@ export default {
         }
       }
     }
-    technologies: allTechnologies {
+    technologies: allTechnologie {
       edges {
         node {
           id

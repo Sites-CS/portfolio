@@ -14,7 +14,13 @@ const slugReplacement = {
 
 module.exports = function(api) {
     api.onCreateNode(options => {
-        if (options.internal.typeName === 'Post' || options.internal.typeName === 'Categories' || options.internal.typeName === 'Technologies') {
+        const typenamesWithSlug = [
+            'PortfolioItem',
+            'Categorie',
+            'Technologie',
+        ]
+
+        if (typenamesWithSlug.includes(options.internal.typeName)) {
             options.slug = slugify(options.title, slugReplacement)
             options.coverImage = options.coverImage || ''
         }
@@ -26,9 +32,9 @@ module.exports = function(api) {
         graphql,
         createPage,
     }) => {
-        const { data: postsData } = await graphql(
+        const { data: portfolioItemsData } = await graphql(
             `{
-                posts: allPost {
+                posts: allPortfolioItem {
                     edges {
                         node {
                             id
@@ -43,8 +49,8 @@ module.exports = function(api) {
             }`
         )
 
-        if (postsData) {
-            postsData.posts.edges.forEach(({
+        if (portfolioItemsData) {
+            portfolioItemsData.posts.edges.forEach(({
                 node,
             }) => {
                 createPage({
@@ -59,7 +65,7 @@ module.exports = function(api) {
 
         const { data: categoriesData } = await graphql(
             `{
-                categories: allCategories {
+                categories: allCategorie {
                     edges {
                         node {
                             id
@@ -89,7 +95,7 @@ module.exports = function(api) {
 
         const { data: technologiesData } = await graphql(
             `{
-                technologies: allTechnologies {
+                technologies: allTechnologie {
                     edges {
                         node {
                             id
@@ -109,6 +115,7 @@ module.exports = function(api) {
             }) => {
                 createPage({
                     path: `/technologies/${node.slug}`,
+                    // TODO: Use dedicated component for technologies
                     component: './src/templates/Categories.vue',
                     context: {
                         recordId: node.id,

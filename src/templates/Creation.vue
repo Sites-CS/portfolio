@@ -23,8 +23,8 @@ export default {
 </script>
 
 <page-query>
-  query Post($recordId: ID!) {
-    entry: post(id: $recordId) {
+  query PortfolioItem($recordId: ID!) {
+    entry: portfolioItem(id: $recordId) {
       title
       excerpt
       date(format: "DD/MM/YYYY")

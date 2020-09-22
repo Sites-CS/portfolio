@@ -47,32 +47,32 @@ module.exports = {
         {
             use: '@gridsome/source-filesystem',
             options: {
-                typeName: 'Post',
-                baseDir: './posts',
+                typeName: 'PortfolioItem',
+                baseDir: './content/portfolio-items',
                 path: '*.md',
             },
         },
         {
             use: '@gridsome/source-filesystem',
             options: {
-                typeName: 'Categories',
-                baseDir: './categories',
+                typeName: 'Categorie',
+                baseDir: './content/categories',
                 path: '*.md',
             },
         },
         {
             use: '@gridsome/source-filesystem',
             options: {
-                typeName: 'Technologies',
-                baseDir: './technologies',
+                typeName: 'Technologie',
+                baseDir: './content/technologies',
                 path: '*.md',
             },
         },
         {
             use: '@gridsome/source-filesystem',
             options: {
-                typeName: 'Blocs',
-                baseDir: './blocs',
+                typeName: 'Block',
+                baseDir: './content/blocks',
                 path: '*.md',
             },
         },
