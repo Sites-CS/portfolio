@@ -1,27 +1,57 @@
 backend:
   name: github
-  repo: Sites-CS/portfolio
+  repo: sebj54/portfolio
   branch: base
+  commit_messages:
+    create: "💬 Create {{collection}} “{{slug}}”"
+    update: "💬 Update {{collection}} “{{slug}}”"
+    delete: "🔥💬 Delete {{collection}} “{{slug}}”"
+    uploadMedia: "🍱 Upload “{{path}}”"
+    deleteMedia: "🔥🍱 Delete “{{path}}”"
+    openAuthoring: "{{message}}"
 
 media_folder: "static/uploads"
 public_folder: "/uploads"
 
 locale: fr
 
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "_"
+
 collections:
   - name: "portfolioItems"
-    label: "Création"
+    label: "Créations"
+    labelSingular: "Création"
     folder: "content/portfolio-items"
     create: true
     slug: "{{slug}}"
     fields:
       - {label: "Titre", name: "title", widget: "string"}
       - {label: "Description", name: "excerpt", widget: "string"}
-      - {label: "Date de publication", name: "date", widget: "date"}
-      - {label: "Lien du site", name: "link", widget: "string"}
+      - label: "Date de publication"
+        name: "date"
+        widget: "datetime"
+        dateFormat: "DD/MM/YYYY"
+        timeFormat: "HH:mm"
+      - label: "Lien du site"
+        name: "link"
+        widget: "string"
+        pattern: ['^https?:\/\/.*', "Le lien du site doit commencer par http(s)://"]
       - {label: "Image de couverture", name: "coverImage", widget: "image", required: false}
+      - label: "Catégories"
+        name: "categories"
+        widget: "relation"
+        collection: "categories"
+        valueField: "{{slug}}"
+        searchFields: ["title"]
+        displayFields: ["title"]
+        multiple: true
+      - {label: "Texte", name: "text", widget: "markdown"}
   - name: "categories"
     label: "Catégories"
+    labelSingular: "Catégorie"
     folder: "content/categories"
     create: true
     slug: "{{slug}}"
@@ -31,6 +61,7 @@ collections:
       - {label: "Image de couverture", name: "coverImage", widget: "image"}
   - name: "technologies"
     label: "Technologies"
+    labelSingular: "Technologie"
     folder: "content/technologies"
     create: true
     slug: "{{slug}}"
@@ -40,9 +71,13 @@ collections:
       - {label: "Image de couverture", name: "coverImage", widget: "image"}
   - name: "blocs"
     label: "Blocs de texte"
+    labelSingular: "Bloc de texte"
     folder: "content/blocks"
     create: true
-    id: "{{id}}"
+    slug: "{{slug}}"
+    identifier_field: "name"
     fields:
       - {label: "Nom", name: "name", widget: "string"}
-      - {label: "Contenu", name: "content", widget: "string"}
+      - {label: "Identifiant unique", name: "uuid", widget: "string", hint: "Spécifiez un identifiant unique qui sera réutilisé dans votre code."}
+      - {label: "Titre", name: "title", widget: "string", required: false}
+      - {label: "Texte", name: "text", widget: "markdown", required: false}
