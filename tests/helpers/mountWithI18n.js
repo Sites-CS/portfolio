@@ -3,9 +3,7 @@ import VueI18n from 'vue-i18n'
 import gridsomeConfig from '~/../gridsome.config'
 
 export default function mountWithI18n(component, options) {
-    const pluginOptions = gridsomeConfig.plugins.find(plugin => plugin.use === 'gridsome-plugin-i18n')
-    delete pluginOptions.use
-    delete pluginOptions.options
+    const pluginOptions = gridsomeConfig.plugins.find(plugin => plugin.use === 'gridsome-plugin-i18n').options
 
     pluginOptions.locale = 'fr'
     pluginOptions.messages.fr = require('~/locales/fr.json')

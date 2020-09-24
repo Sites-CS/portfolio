@@ -88,13 +88,14 @@ module.exports = {
                 locales: [
                     'fr',
                 ],
+                defaultLocale: 'fr',
+                fallbackLocale: 'fr',
+                rewriteDefaultLanguage: false,
+                messages: {
+                    // Messages are declared in main.js
+                    // See https://github.com/daaru00/gridsome-plugin-i18n#hot-reload
+                },
             },
-            fallbackLocale: 'fr',
-            defaultLocale: 'fr',
-            rewriteDefaultLanguage: false,
-            messages: {
-                // Messages are declared in main.js
-                // See https://github.com/daaru00/gridsome-plugin-i18n#hot-reload
             },
         },
     ],
