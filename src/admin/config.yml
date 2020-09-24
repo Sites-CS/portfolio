@@ -48,7 +48,7 @@ collections:
         searchFields: ["title"]
         displayFields: ["title"]
         multiple: true
-      - {label: "Texte", name: "text", widget: "markdown"}
+      - {label: "Texte", name: "body", widget: "markdown"}
   - name: "categories"
     label: "Catégories"
     labelSingular: "Catégorie"
@@ -80,4 +80,4 @@ collections:
       - {label: "Nom", name: "name", widget: "string"}
       - {label: "Identifiant unique", name: "uuid", widget: "string", hint: "Spécifiez un identifiant unique qui sera réutilisé dans votre code."}
       - {label: "Titre", name: "title", widget: "string", required: false}
-      - {label: "Texte", name: "text", widget: "markdown", required: false}
+      - {label: "Texte", name: "body", widget: "markdown", required: false}
