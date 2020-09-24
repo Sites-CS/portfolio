@@ -1,28 +1,39 @@
 <template>
-    <div class="technologies-list">
-        <g-link
+    <b-row
+        cols="1"
+        cols-sm="2"
+        cols-md="3"
+        cols-lg="4"
+        cols-xl="6"
+    >
+        <b-col
             v-for="(tech, index) in list"
             :key="`technologies-list-item-${index}`"
-            :to="`technologies/${tech.node.slug}`"
-            class="technologies-list-item d-block my-4"
+            class="technologies-list"
         >
-            <b-card
-                no-body
-            >
-                <g-image
-                    class="technologies-list-item-coverImage card-img"
-                    :src="tech.node.coverImage"
-                    alt=""
-                />
+            <g-link
 
-                <b-card-body>
-                    <b-card-title class="technologies-list-item-title">
-                        {{ tech.node.title }}
-                    </b-card-title>
-                </b-card-body>
-            </b-card>
-        </g-link>
-    </div>
+                :to="`technologies/${tech.node.slug}`"
+                class="technologies-list-item d-block my-4"
+            >
+                <b-card
+                    no-body
+                >
+                    <g-image
+                        class="technologies-list-item-coverImage card-img"
+                        :src="tech.node.coverImage"
+                        alt=""
+                    />
+
+                    <b-card-body>
+                        <b-card-title class="technologies-list-item-title">
+                            {{ tech.node.title }}
+                        </b-card-title>
+                    </b-card-body>
+                </b-card>
+            </g-link>
+        </b-col>
+    </b-row>
 </template>
 
 <script>
@@ -30,6 +41,8 @@ import {
     BCard,
     BCardBody,
     BCardTitle,
+    BCol,
+    BRow,
 } from 'bootstrap-vue'
 
 export default {
@@ -37,6 +50,8 @@ export default {
         BCard,
         BCardBody,
         BCardTitle,
+        BCol,
+        BRow,
     },
     props: {
         list: {
