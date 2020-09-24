@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@gridsome/plugin-critical": "^0.2.0",
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.6.2",
     "bootstrap": "^4.5.2",

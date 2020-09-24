@@ -96,6 +96,13 @@ module.exports = {
                     // See https://github.com/daaru00/gridsome-plugin-i18n#hot-reload
                 },
             },
+        },
+        {
+            use: '@gridsome/plugin-critical',
+            options: {
+                paths: ['/'],
+                width: 1920,
+                height: 1080,
             },
         },
     ],
