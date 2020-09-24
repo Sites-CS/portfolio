@@ -11,33 +11,41 @@
             :key="`technologies-list-item-${index}`"
             class="technologies-list"
         >
-            <g-link
-
-                :to="`technologies/${tech.node.slug}`"
-                class="technologies-list-item d-block my-4"
+            <b-card
+                class="my-4"
+                no-body
             >
-                <b-card
-                    no-body
-                >
-                    <g-image
-                        class="technologies-list-item-coverImage card-img"
-                        :src="tech.node.coverImage"
-                        alt=""
-                    />
+                <g-image
+                    class="technologies-list-item-coverImage card-img"
+                    :src="tech.node.coverImage"
+                    alt=""
+                />
 
-                    <b-card-body>
-                        <b-card-title class="technologies-list-item-title">
-                            {{ tech.node.title }}
-                        </b-card-title>
-                    </b-card-body>
-                </b-card>
-            </g-link>
+                <b-card-body>
+                    <b-card-title
+                        tag="h3"
+                        class="technologies-list-item-title h5"
+                    >
+                        {{ tech.node.title }}
+                    </b-card-title>
+
+                    <b-button
+                        :to="`technologies/${tech.node.slug}`"
+                        class="technologies-list-item"
+                        block
+                        variant="primary"
+                    >
+                        {{ $t('portfolio.viewProjects') }}
+                    </b-button>
+                </b-card-body>
+            </b-card>
         </b-col>
     </b-row>
 </template>
 
 <script>
 import {
+    BButton,
     BCard,
     BCardBody,
     BCardTitle,
@@ -47,6 +55,7 @@ import {
 
 export default {
     components: {
+        BButton,
         BCard,
         BCardBody,
         BCardTitle,

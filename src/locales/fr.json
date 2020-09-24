@@ -16,6 +16,8 @@
     },
     "portfolio": {
         "coverImageAlt": "Image du projet {title}",
+        "viewItem": "Consulter",
+        "viewProjects": "Voir les projets",
         "visitWebsite": "Visiter le site web"
     },
     "pages": {
