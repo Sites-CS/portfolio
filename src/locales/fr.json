@@ -13,5 +13,10 @@
             "email": "Le format de l’adresse e-mail est incorrect"
         },
         "submit": "Envoyer"
+    },
+    "pages": {
+        "index": "Accueil",
+        "contact": "Contact",
+        "portfolio": "Créations"
     }
 }

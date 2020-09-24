@@ -14,21 +14,11 @@
                 >
                     <b-navbar-nav>
                         <b-nav-item
-                            to="/"
+                            v-for="(link, index) in links"
+                            :key="`navbar-link-${index}`"
+                            :to="`/${link === 'index' ? '' : link}`"
                         >
-                            Home
-                        </b-nav-item>
-
-                        <b-nav-item
-                            to="/about/"
-                        >
-                            About
-                        </b-nav-item>
-
-                        <b-nav-item
-                            to="/contact/"
-                        >
-                            Contact
+                            {{ $t(`pages.${link}`) }}
                         </b-nav-item>
                     </b-navbar-nav>
                 </b-collapse>
@@ -61,6 +51,15 @@ export default {
         BNavbarBrand,
         BNavbarToggle,
         BNavItem,
+    },
+    data() {
+        return {
+            links: [
+                'index',
+                'portfolio',
+                'contact',
+            ],
+        }
     },
 }
 </script>
