@@ -48,7 +48,7 @@ export default {
         }
       }
     }
-    technologies: allTechnologie {
+    technologies: allTechnology {
       edges {
         node {
           id

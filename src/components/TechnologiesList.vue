@@ -1,10 +1,10 @@
 <template>
-    <div>
+    <div class="technologies-list">
         <g-link
             v-for="(tech, index) in list"
             :key="`technologies-list-item-${index}`"
             :to="`technologies/${tech.node.slug}`"
-            class="about-technologie-item d-block my-4"
+            class="technologies-list-item d-block my-4"
         >
             <b-card
                 no-body

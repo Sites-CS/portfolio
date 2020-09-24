@@ -17,7 +17,7 @@ module.exports = function(api) {
         const typenamesWithSlug = [
             'PortfolioItem',
             'Categorie',
-            'Technologie',
+            'Technology',
         ]
 
         if (typenamesWithSlug.includes(options.internal.typeName)) {
@@ -95,7 +95,7 @@ module.exports = function(api) {
 
         const { data: technologiesData } = await graphql(
             `{
-                technologies: allTechnologie {
+                technologies: allTechnology {
                     edges {
                         node {
                             id

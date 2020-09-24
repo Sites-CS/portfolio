@@ -63,7 +63,7 @@ module.exports = {
         {
             use: '@gridsome/source-filesystem',
             options: {
-                typeName: 'Technologie',
+                typeName: 'Technology',
                 baseDir: './content/technologies',
                 path: '*.md',
             },
