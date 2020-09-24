@@ -38,11 +38,7 @@ module.exports = function(api) {
                     edges {
                         node {
                             id
-                            title
                             slug
-                            excerpt
-                            date(format: "DD/MM/YYYY")
-                            coverImage
                         }
                     }
                 }
@@ -70,9 +66,6 @@ module.exports = function(api) {
                         node {
                             id
                             slug
-                            title
-                            excerpt
-                            coverImage
                         }
                     }
                 }
@@ -100,9 +93,6 @@ module.exports = function(api) {
                         node {
                             id
                             slug
-                            title
-                            excerpt
-                            coverImage
                         }
                     }
                 }
