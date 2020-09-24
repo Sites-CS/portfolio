@@ -51,7 +51,7 @@ module.exports = function(api) {
             }) => {
                 createPage({
                     path: `/creations/${node.slug}`,
-                    component: './src/templates/Creation.vue',
+                    component: './src/templates/PortfolioItem.vue',
                     context: {
                         recordId: node.id,
                     },
