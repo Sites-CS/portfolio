@@ -48,6 +48,14 @@ collections:
         searchFields: ["title"]
         displayFields: ["title"]
         multiple: true
+      - label: "Technologies"
+        name: "technologies"
+        widget: "relation"
+        collection: "technologies"
+        valueField: "{{slug}}"
+        searchFields: ["title"]
+        displayFields: ["title"]
+        multiple: true
       - {label: "Texte", name: "body", widget: "markdown"}
   - name: "categories"
     label: "Catégories"
