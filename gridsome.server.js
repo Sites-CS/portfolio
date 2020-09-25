@@ -4,7 +4,7 @@
 
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
-module.exports = function(api) {
+module.exports = function (api) {
     api.onCreateNode(options => {
         const typenamesWithSlug = [
             'PortfolioItem',

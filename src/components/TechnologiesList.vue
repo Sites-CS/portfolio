@@ -12,9 +12,8 @@
             class="technologies-list"
         >
             <b-card
-                class="my-4"
                 no-body
-                class="technologies-list-item-card"
+                class="technologies-list-item-card my-4"
             >
                 <g-image
                     class="technologies-list-item-coverImage card-img"
