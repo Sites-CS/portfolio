@@ -10,6 +10,10 @@ coverImage: /uploads/1920x1080.png
 categories:
   - applications_mobiles
   - interface_dadministration
+technologies:
+  - nativescript
+  - php
+  - vue-js
 ---
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, vero
 cupiditate iste quisquam iusto perferendis in fugiat sed ad, qui eligendi

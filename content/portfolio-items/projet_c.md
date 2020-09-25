@@ -9,6 +9,8 @@ link: https://www.example.com
 coverImage: /uploads/1920x1080.png
 categories:
   - sites_vitrines
+technologies:
+  - vue-js
 ---
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, vero
 cupiditate iste quisquam iusto perferendis in fugiat sed ad, qui eligendi
