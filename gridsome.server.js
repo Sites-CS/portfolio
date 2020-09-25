@@ -8,7 +8,7 @@ module.exports = function(api) {
     api.onCreateNode(options => {
         const typenamesWithSlug = [
             'PortfolioItem',
-            'Categorie',
+            'Category',
             'Technology',
         ]
 

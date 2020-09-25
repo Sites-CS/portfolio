@@ -55,7 +55,7 @@ module.exports = {
         {
             use: '@gridsome/source-filesystem',
             options: {
-                typeName: 'Categorie',
+                typeName: 'Category',
                 baseDir: './content/categories',
                 path: '*.md',
             },
@@ -108,7 +108,7 @@ module.exports = {
     ],
 
     templates: {
-        Categorie: [
+        Category: [
             {
                 path: '/categories/:title',
                 component: './src/templates/Categories.vue',
