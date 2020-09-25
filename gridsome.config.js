@@ -106,6 +106,29 @@ module.exports = {
             },
         },
     ],
+
+    templates: {
+        Categorie: [
+            {
+                path: '/categories/:title',
+                component: './src/templates/Categories.vue',
+            },
+        ],
+        PortfolioItem: [
+            {
+                path: '/portfolio/:title',
+                component: './src/templates/PortfolioItem.vue',
+            },
+        ],
+        Technology: [
+            {
+                path: '/technologies/:title',
+                // TODO: Use dedicated component for technologies
+                component: './src/templates/Categories.vue',
+            },
+        ],
+    },
+
     chainWebpack(config) {
         // Load variables for all vue-files
         const types = ['vue-modules', 'vue', 'normal-modules', 'normal']

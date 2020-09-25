@@ -40,8 +40,8 @@ export default {
       edges {
         node {
           id
+          path
           title
-          slug
           date(format: "DD/MM/YYYY")
           excerpt
           coverImage
@@ -52,8 +52,8 @@ export default {
       edges {
         node {
           id
+          path
           title
-          slug
           excerpt
           coverImage
         }

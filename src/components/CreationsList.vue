@@ -35,7 +35,7 @@
                     </b-card-text>
 
                     <b-button
-                        :to="`creations/${creation.node.slug}`"
+                        :to="creation.node.path"
                         class="creations-list-item"
                         block
                         variant="primary"

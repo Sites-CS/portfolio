@@ -30,7 +30,7 @@
                     </b-card-title>
 
                     <b-button
-                        :to="`technologies/${tech.node.slug}`"
+                        :to="tech.node.path"
                         class="technologies-list-item"
                         block
                         variant="primary"

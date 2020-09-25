@@ -45,8 +45,8 @@ export default {
 </script>
 
 <page-query>
-  query PortfolioItem($recordId: ID!) {
-    entry: portfolioItem(id: $recordId) {
+  query PortfolioItem($id: ID!) {
+    entry: portfolioItem(id: $id) {
       title
       excerpt
       link
