@@ -1,0 +1,21 @@
+// Vars, mixins, functions
+@import 'vars-override';
+@import 'vars';
+@import 'mixins';
+@import '~bootstrap/scss/_functions';
+@import '~bootstrap/scss/_variables';
+@import '~bootstrap/scss/_mixins';
+
+// Bootstrap content style
+@import '~bootstrap/scss/root';
+@import '~bootstrap/scss/reboot';
+@import '~bootstrap/scss/type';
+@import '~bootstrap/scss/code';
+
+// Custom content style
+@import 'content';
+
+div + div {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}

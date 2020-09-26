@@ -39,7 +39,6 @@ collections:
         name: "link"
         widget: "string"
         pattern: ['^https?:\/\/.*', "Le lien du site doit commencer par http(s)://"]
-      - {label: "Image de couverture", name: "coverImage", widget: "image", required: false}
       - label: "Catégories"
         name: "categories"
         widget: "relation"
@@ -56,6 +55,7 @@ collections:
         searchFields: ["title"]
         displayFields: ["title"]
         multiple: true
+      - {label: "Image de couverture", name: "coverImage", widget: "image", required: false}
       - {label: "Texte", name: "body", widget: "markdown"}
   - name: "categories"
     label: "Catégories"

@@ -79,6 +79,9 @@ module.exports = {
         {
             use: 'gridsome-plugin-netlify-cms',
             options: {
+                configPath: 'src/admin/config.yml',
+                htmlTitle: 'Portfolio CMS',
+                modulePath: 'src/admin/index.js',
                 publicPath: '/admin',
             },
         },
