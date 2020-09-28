@@ -14,6 +14,7 @@ technologies:
   - nativescript
   - php
   - vue-js
+featured: true
 ---
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, vero
 cupiditate iste quisquam iusto perferendis in fugiat sed ad, qui eligendi
