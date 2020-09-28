@@ -52,6 +52,8 @@ export default {
       link
       coverImage
       content
+      screenshots
+      featured
     }
   }
 </page-query>

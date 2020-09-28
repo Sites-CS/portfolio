@@ -47,7 +47,7 @@ export default {
 
 <page-query>
   query {
-    portfolioItems: allPortfolioItem {
+    portfolioItems: allPortfolioItem (sortBy: "featured", limit: 5)  {
       edges {
         node {
           id
