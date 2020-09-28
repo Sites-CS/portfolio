@@ -41,4 +41,13 @@ describe('TechnologiesList', () => {
             })
         })
     })
+
+    // TODO: Need to find a way to access to link property, here a button is rendered and we don't have any access to the link.
+    // it('renders fields', () => {
+    // Maybe there is away to get props('to'), but I can't pass this error : [vue-test-utils]: wrapper.props() cannot be called on a mounted functional component.
+    // const to = wrapper.find('.technologies-list-item-link').html()
+    //
+    // console.log(to)
+    // tech.node.path
+    // })
 })
