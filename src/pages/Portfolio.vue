@@ -3,17 +3,21 @@
         <creations-list :list="allCreations" />
 
         <technologies-list :list="allTechnologies" />
+
+        <categories-list :list="allCategories" />
     </layout>
 </template>
 
 <script>
-import TechnologiesList from '~/components/TechnologiesList.vue'
 import CreationsList from '~/components/CreationsList.vue'
+import TechnologiesList from '~/components/TechnologiesList.vue'
+import CategoriesList from '~/components/CategoriesList.vue'
 
 export default {
     components: {
         TechnologiesList,
         CreationsList,
+        CategoriesList,
     },
     computed: {
         allCreations() {
@@ -29,6 +33,13 @@ export default {
             }
 
             return this.$page.technologies.edges
+        },
+        allCategories() {
+            if (!this.$page.categories || !this.$page.categories.edges) {
+                return []
+            }
+
+            return this.$page.categories.edges
         },
     },
 }
@@ -49,6 +60,17 @@ export default {
       }
     }
     technologies: allTechnology {
+      edges {
+        node {
+          id
+          path
+          title
+          excerpt
+          coverImage
+        }
+      }
+    }
+    categories: allCategory {
       edges {
         node {
           id

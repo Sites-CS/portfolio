@@ -1,7 +1,7 @@
 <template>
     <generic-list
         :list="list"
-        list-name="technologies"
+        list-name="categories"
     />
 </template>
 
