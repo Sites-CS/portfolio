@@ -62,6 +62,7 @@ collections:
         widget: "list"
         summary: '{{fields.image}}'
         field: {name: image, widget: image}
+      - {label: "Featured", name: "featured", widget: "boolean", required: false}
   - name: "categories"
     label: "Catégories"
     labelSingular: "Catégorie"
