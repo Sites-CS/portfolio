@@ -15,6 +15,7 @@ screenshots:
   - /uploads/960x480.png
   - /uploads/960x480.png
   - /uploads/960x480.png
+  - /uploads/1920x1080.png
 featured: false
 ---
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, vero
