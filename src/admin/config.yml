@@ -57,6 +57,11 @@ collections:
         multiple: true
       - {label: "Image de couverture", name: "coverImage", widget: "image", required: false}
       - {label: "Texte", name: "body", widget: "markdown"}
+      - label: "Screenshots"
+        name: "screenshots"
+        widget: "list"
+        summary: '{{fields.image}}'
+        field: {name: image, widget: image}
   - name: "categories"
     label: "Catégories"
     labelSingular: "Catégorie"
