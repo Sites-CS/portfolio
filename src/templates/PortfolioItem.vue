@@ -29,6 +29,13 @@
             class="portfolio-item-content"
             v-html="$page.entry.content"
         />
+
+        <g-image
+            v-for="(screenshot, index) in $page.entry.screenshots"
+            :key="`portfolio-item-screenshot-${index}`"
+            class="portfolio-item-screenshot"
+            :src="screenshot"
+        />
     </layout>
 </template>
 
