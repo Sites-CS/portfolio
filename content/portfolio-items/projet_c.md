@@ -15,7 +15,7 @@ screenshots:
   - /uploads/960x480.png
   - /uploads/960x480.png
   - /uploads/960x480.png
-featured: true
+featured: false
 ---
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, vero
 cupiditate iste quisquam iusto perferendis in fugiat sed ad, qui eligendi
