@@ -4,8 +4,8 @@ module.exports = {
             preset: 'lighthouse:recommended',
         },
         collect: {
-            url: ['http://localhost:5000/'],
-            startServerCommand: 'npx serve dist',
+            url: ['https://localhost:8080/'],
+            startServerCommand: 'npx http-server ./dist --ssl --cert cert.pem',
         },
         upload: {
             target: 'temporary-public-storage',

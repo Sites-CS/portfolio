@@ -16,10 +16,13 @@ jobs:
     - stage: "Build"
       name: "Gridsome build"
       script: npm run build
-    - addons:
+    - stage: "Performance check"
+      name: "Lighthouse CI"
+      addons:
         chrome: stable
       before_install:
         - npm install -g @lhci/cli
-      script:
         - npm run build
+        - openssl req -batch -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem
+      script:
         - lhci autorun
