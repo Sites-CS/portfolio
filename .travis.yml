@@ -16,3 +16,10 @@ jobs:
     - stage: "Build"
       name: "Gridsome build"
       script: npm run build
+    - addons:
+        chrome: stable
+      before_install:
+        - npm install -g @lhci/cli
+      script:
+        - npm run build
+        - lhci autorun
