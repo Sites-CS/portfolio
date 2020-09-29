@@ -23,10 +23,12 @@ function addStyleResource(rule) {
 
 // TODO: Use env?
 const siteName = 'Portfolio'
+const siteDescription = 'Un exemple de portfolio réalisé avec Gridsome.'
 const favicon = 'src/assets/img/favicon.png'
 
 module.exports = {
-    siteName: 'Portfolio',
+    siteName,
+    siteDescription,
     // TODO: Use env
     siteUrl: 'https://example.com',
     icon: {
@@ -49,6 +51,7 @@ module.exports = {
             use: 'gridsome-plugin-pwa',
             options: {
                 title: siteName,
+                description: siteDescription,
                 themeColor: '#00835c',
                 backgroundColor: '#ffffff',
                 icon: favicon,
