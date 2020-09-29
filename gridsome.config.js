@@ -4,9 +4,6 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
-// TODO: Use critical CSS plugin
-// @see https://gridsome.org/plugins/@gridsome/plugin-critical
-
 const path = require('path')
 
 function addStyleResource(rule) {
@@ -24,14 +21,18 @@ function addStyleResource(rule) {
         })
 }
 
+// TODO: Use env?
+const siteName = 'Portfolio'
+const favicon = 'src/assets/img/favicon.png'
+
 module.exports = {
-    // TODO: Use env?
     siteName: 'Portfolio',
     // TODO: Use env
     siteUrl: 'https://example.com',
-    // icon: {
-    //     favicon: 'src/favicon.png',
-    // },
+    icon: {
+        favicon,
+    },
+
     transformers: {
         remark: {
             externalLinksTarget: '_blank',
@@ -44,6 +45,17 @@ module.exports = {
     },
 
     plugins: [
+        {
+            use: 'gridsome-plugin-pwa',
+            options: {
+                title: siteName,
+                themeColor: '#00835c',
+                backgroundColor: '#ffffff',
+                icon: favicon,
+                lang: 'fr',
+                maskableIcon: true,
+            },
+        },
         {
             use: '@gridsome/source-filesystem',
             options: {

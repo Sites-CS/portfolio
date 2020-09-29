@@ -18,6 +18,7 @@
     "gridsome": "^0.7.0",
     "gridsome-plugin-i18n": "^1.6.0",
     "gridsome-plugin-netlify-cms": "^1.0.9",
+    "gridsome-plugin-pwa": "0.0.18",
     "jest": "^26.4.2",
     "netlify-cms": "^2.10.56",
     "nodemailer": "^6.4.11",
