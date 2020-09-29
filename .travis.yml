@@ -22,6 +22,7 @@ jobs:
         chrome: stable
       before_install:
         - npm install -g @lhci/cli
+        - npm install -g http-server
         - npm run build
         - openssl req -batch -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem
       script:
