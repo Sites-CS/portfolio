@@ -20,6 +20,7 @@ jobs:
       name: "Lighthouse CI"
       addons:
         chrome: stable
+      # TODO: Use before_script?
       before_install:
         - npm install -g @lhci/cli
         - npm install -g http-server

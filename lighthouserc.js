@@ -2,6 +2,12 @@ module.exports = {
     ci: {
         assert: {
             preset: 'lighthouse:recommended',
+            assertions: {
+                'unused-css-rules': ['warn', { maxLength: 0 }],
+                'unused-javascript': ['warn', { maxLength: 0 }],
+                'uses-text-compression': 'off',
+                'without-javascript': 'off',
+            },
         },
         collect: {
             url: ['https://localhost:8080/'],
