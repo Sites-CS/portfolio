@@ -5,14 +5,13 @@ module.exports = {
             assertions: {
                 'unused-css-rules': ['warn', { maxLength: 0 }],
                 'unused-javascript': ['warn', { maxLength: 0 }],
-                'uses-text-compression': 'off',
                 'without-javascript': 'off',
             },
         },
         collect: {
-            url: ['https://localhost:8080/'],
-            startServerCommand: 'http-server ./dist --ssl --cert cert.pem',
-            startServerReadyPattern: 'listen|ready|available on',
+            url: ['https://localhost:5000/'],
+            startServerCommand: 'serve dist --ssl-cert cert.pem --ssl-key key.pem',
+            startServerReadyPattern: 'listen|ready|serving!',
             settings: {
                 chromeFlags: ['--ignore-certificate-errors'],
             },

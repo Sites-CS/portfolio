@@ -20,10 +20,9 @@ jobs:
       name: "Lighthouse CI"
       addons:
         chrome: stable
-      # TODO: Use before_script?
-      before_install:
+      before_script:
         - npm install -g @lhci/cli
-        - npm install -g http-server
+        - npm install -g serve
         - npm run build
         - openssl req -batch -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem
       script:
