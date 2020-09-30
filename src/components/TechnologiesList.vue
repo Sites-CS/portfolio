@@ -2,6 +2,8 @@
     <generic-list
         :list="list"
         list-name="technologies"
+        :selected="selected"
+        @selected="setSelected"
     />
 </template>
 
@@ -16,6 +18,15 @@ export default {
         list: {
             type: Array,
             required: true,
+        },
+        selected: {
+            type: Array,
+            default: () => [],
+        },
+    },
+    methods: {
+        setSelected(selected) {
+            this.$emit('selected', selected)
         },
     },
 }

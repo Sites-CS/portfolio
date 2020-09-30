@@ -15,6 +15,7 @@
             <b-card
                 no-body
                 :class="`${listName}-list-item-card my-4`"
+                @click="setSelected(tech)"
             >
                 <g-image
                     :class="`${listName}-list-item-coverImage card-img`"
@@ -72,6 +73,29 @@ export default {
         list: {
             type: Array,
             required: true,
+        },
+        selected: {
+            type: Array,
+            default: () => [],
+        },
+    },
+    methods: {
+        setSelected(item) {
+            let itemIndex = -1
+            let clonedItems = []
+
+            if (this.selected) {
+                itemIndex = this.selected.indexOf(item)
+                clonedItems = [...this.selected]
+            }
+
+            if (itemIndex === -1) {
+                clonedItems.push(item)
+            } else {
+                clonedItems.splice(itemIndex, 1)
+            }
+
+            this.$emit('selected', clonedItems)
         },
     },
 }

@@ -1,23 +1,15 @@
 <template>
     <layout>
         <creations-list :list="allCreations" />
-
-        <technologies-list :list="allTechnologies" />
-
-        <categories-list :list="allCategories" />
     </layout>
 </template>
 
 <script>
 import CreationsList from '~/components/CreationsList.vue'
-import TechnologiesList from '~/components/TechnologiesList.vue'
-import CategoriesList from '~/components/CategoriesList.vue'
 
 export default {
     components: {
-        TechnologiesList,
         CreationsList,
-        CategoriesList,
     },
     computed: {
         allCreations() {
@@ -26,20 +18,6 @@ export default {
             }
 
             return this.$page.portfolioItems.edges
-        },
-        allTechnologies() {
-            if (!this.$page.technologies || !this.$page.technologies.edges) {
-                return []
-            }
-
-            return this.$page.technologies.edges
-        },
-        allCategories() {
-            if (!this.$page.categories || !this.$page.categories.edges) {
-                return []
-            }
-
-            return this.$page.categories.edges
         },
     },
 }
@@ -56,6 +34,8 @@ export default {
           date(format: "DD/MM/YYYY")
           excerpt
           coverImage
+          technologies
+          categories
         }
       }
     }
