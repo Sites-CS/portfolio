@@ -16,9 +16,9 @@ public_folder: "/uploads"
 locale: fr
 
 slug:
-  encoding: "ascii"
+  encoding: "unicode"
   clean_accents: true
-  sanitize_replacement: "_"
+  sanitize_replacement: "-"
 
 collections:
   - name: "portfolioItems"

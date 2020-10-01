@@ -126,23 +126,10 @@ module.exports = {
     ],
 
     templates: {
-        Category: [
-            {
-                path: '/categories/:title',
-                component: './src/templates/Categories.vue',
-            },
-        ],
         PortfolioItem: [
             {
                 path: '/portfolio/:title',
                 component: './src/templates/PortfolioItem.vue',
-            },
-        ],
-        Technology: [
-            {
-                path: '/technologies/:title',
-                // TODO: Use dedicated component for technologies
-                component: './src/templates/Categories.vue',
             },
         ],
     },

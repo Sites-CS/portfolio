@@ -1,6 +1,8 @@
 <template>
     <layout>
-        <creations-list :list="allCreations" />
+        <creations-list
+            :list="allCreations"
+        />
     </layout>
 </template>
 
@@ -11,13 +13,15 @@ export default {
     components: {
         CreationsList,
     },
+    data() {
+        return {
+            isFiltered: Boolean,
+            default: false,
+        }
+    },
     computed: {
         allCreations() {
-            if (!this.$page.portfolioItems || !this.$page.portfolioItems.edges) {
-                return []
-            }
-
-            return this.$page.portfolioItems.edges
+            return (!this.$page.portfolioItems || !this.$page.portfolioItems.edges) ? [] : this.$page.portfolioItems.edges
         },
     },
 }
@@ -25,7 +29,7 @@ export default {
 
 <page-query>
   query {
-    portfolioItems: allPortfolioItem (sortBy: "featured", limit: 5)  {
+    portfolioItems: allPortfolioItem (sortBy: "featured")  {
       edges {
         node {
           id
@@ -43,10 +47,12 @@ export default {
       edges {
         node {
           id
-          path
           title
           excerpt
           coverImage
+          fileInfo {
+              name
+          }
         }
       }
     }
@@ -58,6 +64,9 @@ export default {
           title
           excerpt
           coverImage
+          fileInfo {
+              name
+          }
         }
       }
     }

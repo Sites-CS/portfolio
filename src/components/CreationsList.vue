@@ -17,7 +17,7 @@
             cols-xl="3"
         >
             <b-col
-                v-for="(creation, index) in getFilteredElements"
+                v-for="(creation, index) in filteredList"
                 :key="`creations-list-item-${index}`"
             >
                 <b-card
@@ -99,63 +99,65 @@ export default {
         }
     },
     computed: {
-        getFilteredElements() {
+        filteredList() {
             let filteredList = []
 
-            if (this.selectedTechnologies && !this.selectedCategories) {
-                filteredList = this.list.filter(element => {
-                    let isConcerned = false
-                    this.selectedTechnologies.forEach(technology => {
-                        isConcerned = isConcerned || element.node.technologies.includes(this.itemToSlug(technology))
-                    })
-                    return isConcerned
-                })
-            }
-            else if (this.selectedCategories && !this.selectedTechnologies) {
-                filteredList = this.list.filter(element => {
-                    let isConcerned = false
-                    this.selectedCategories.forEach(category => {
-                        isConcerned = isConcerned || element.node.technologies.includes(this.itemToSlug(category))
-                    })
-                    return isConcerned
-                })
-            }
-            else if (this.selectedCategories && this.selectedTechnologies) {
-                filteredList = this.list.filter(element => {
-                    let isConcerned = false
-                    this.selectedCategories.forEach(category => {
-                        isConcerned = isConcerned || element.node.categories.includes(this.itemToSlug(category))
-                    })
-                    this.selectedTechnologies.forEach(technology => {
-                        isConcerned = isConcerned || element.node.technologies.includes(this.itemToSlug(technology))
-                    })
-                    return isConcerned
-                })
+            if (this.selectedCategories || this.selectedTechnologies) {
+                filteredList = this.list.filter(this.isElementConcerned)
             }
             else {
-                filteredList = [...this.list]
+                filteredList = this.list
             }
 
             return filteredList
         },
         allTechnologies() {
-            if (!this.$page.technologies || !this.$page.technologies.edges) {
-                return []
-            }
-
-            return this.$page.technologies.edges
+            return (!this.$page.technologies || !this.$page.technologies.edges) ? [] : this.$page.technologies.edges
         },
         allCategories() {
-            if (!this.$page.categories || !this.$page.categories.edges) {
-                return []
-            }
-
-            return this.$page.categories.edges
+            return (!this.$page.categories || !this.$page.categories.edges) ? [] : this.$page.categories.edges
         },
     },
+    created() {
+        const splittedTechnologies = (this.$route.query && this.$route.query.technologies) ?  this.$route.query.technologies.split(',') : null
+        const splittedCategories = (this.$route.query && this.$route.query.categories) ?  this.$route.query.categories.split(',') : null
+
+        this.fillListFromParams(splittedTechnologies, splittedCategories)
+    },
     methods: {
+        fillListFromParams(splittedTechnologies, splittedCategories) {
+            if (splittedTechnologies) {
+                this.selectedTechnologies = this.$page.technologies.edges.filter(element => {
+                    return splittedTechnologies.some(technology => {
+                        return element.node.fileInfo.name.includes(technology)
+                    })
+                })
+            }
+
+            if (splittedCategories) {
+                this.selectedCategories = this.$page.categories.edges.filter(element => {
+                    return splittedCategories.some(technology => {
+                        return element.node.fileInfo.name.includes(technology)
+                    })
+                })
+            }
+        },
+        isElementConcerned(element) {
+            let isConcerned = false
+            if (this.selectedCategories) {
+                isConcerned = this.selectedCategories.some(category => {
+                    return element.node.categories.includes(this.itemToSlug(category))
+                })
+            }
+            if (this.selectedTechnologies && !isConcerned) {
+                isConcerned = this.selectedTechnologies.some(technology => {
+                    return element.node.technologies.includes(this.itemToSlug(technology))
+                })
+            }
+            return isConcerned
+        },
         itemToSlug(item) {
-            return item.node.path.replace(/.*\/([^\/]*)\/$/g, '$1')
+            return item.node.fileInfo.name
         },
         addFilters() {
             this.selectedTechnologies = this.selectedTechnologies && this.selectedTechnologies.length > 0 ? this.selectedTechnologies : null
@@ -163,20 +165,20 @@ export default {
 
             let technologiesSlug
             let categoriesSlug
+            let query
 
             if (this.selectedCategories && this.selectedTechnologies) {
                 technologiesSlug = this.selectedTechnologies.map(this.itemToSlug).join(',')
                 categoriesSlug = this.selectedCategories.map(this.itemToSlug).join(',')
-                this.$router.push({ path: 'portfolio', query: { technologies: technologiesSlug , categories: categoriesSlug }})
+                query = { technologies: technologiesSlug , categories: categoriesSlug }
             } else if (this.selectedTechnologies) {
                 technologiesSlug = this.selectedTechnologies.map(this.itemToSlug).join(',')
-                this.$router.push({ path: 'portfolio', query: { technologies: technologiesSlug }})
+                query = { technologies: technologiesSlug }
             } else if (this.selectedCategories) {
                 categoriesSlug = this.selectedCategories.map(this.itemToSlug).join(',')
-                this.$router.push({ path: 'portfolio', query: { categories: categoriesSlug }})
-            } else {
-                this.$router.push({ path: 'portfolio'})
+                query = { categories: categoriesSlug }
             }
+            this.$router.replace({ path: 'portfolio', query })
 
         },
       	setSelectedTechnologies(technologies) {
