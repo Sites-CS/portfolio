@@ -1,21 +1,20 @@
 ---
-title: Projet C
+title: Projet A
 excerpt: Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, vero
   cupiditate iste quisquam iusto perferendis in fugiat sed ad, qui eligendi
   optio eaque doloribus reprehenderit provident veritatis omnis, laudantium
   deleniti.
-date: 2020-09-22T22:00:00.000Z
+date: 2020-09-26T14:03:02.601Z
 link: https://www.example.com
 coverImage: /uploads/1920x1080.png
 categories:
-  - sites_vitrines
+  - sites-vitrines
 technologies:
   - vue-js
 screenshots:
   - /uploads/960x480.png
   - /uploads/960x480.png
   - /uploads/960x480.png
-  - /uploads/1920x1080.png
 featured: false
 ---
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, vero

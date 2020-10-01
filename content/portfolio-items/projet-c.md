@@ -1,5 +1,5 @@
 ---
-title: Projet E
+title: Projet C
 excerpt: Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, vero
   cupiditate iste quisquam iusto perferendis in fugiat sed ad, qui eligendi
   optio eaque doloribus reprehenderit provident veritatis omnis, laudantium
@@ -8,16 +8,15 @@ date: 2020-09-22T22:00:00.000Z
 link: https://www.example.com
 coverImage: /uploads/1920x1080.png
 categories:
-  - sites_vitrines
-  - interface_dadministration
+  - sites-vitrines
 technologies:
-  - php
   - vue-js
 screenshots:
   - /uploads/960x480.png
   - /uploads/960x480.png
-  - /uploads/640x320.png
   - /uploads/960x480.png
+  - /uploads/1920x1080.png
+featured: false
 ---
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, vero
 cupiditate iste quisquam iusto perferendis in fugiat sed ad, qui eligendi

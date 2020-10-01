@@ -8,8 +8,8 @@ date: 2020-09-30T15:38:32.197Z
 link: https://www.example.com
 coverImage: /uploads/1920x1080.png
 categories:
-  - sites_vitrines
-  - applications_mobiles
+  - sites-vitrines
+  - applications-mobiles
 technologies:
   - nativescript
 featured: true
