@@ -2,7 +2,15 @@
     <layout>
         <block v-bind="aboutContent" />
 
-        <creations-list :list="allCreations" />
+        <section>
+            <h1> {{ $t('pages.index') }} </h1>
+
+            <creations-list
+                :list="allCreations"
+                :show-filters="false"
+                title-tag="h2"
+            />
+        </section>
     </layout>
 </template>
 

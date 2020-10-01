@@ -123,6 +123,13 @@ module.exports = {
                 height: 1080,
             },
         },
+        {
+            use: 'gridsome-plugin-netlify-cms-paths',
+            options: {
+                contentTypes: ['PortfolioItem', 'Technology', 'Category'],
+                coverField: 'coverImage',
+            },
+        },
     ],
 
     templates: {

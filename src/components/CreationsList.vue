@@ -1,16 +1,18 @@
 <template>
     <div>
-        <technologies-list
-            :list="allTechnologies"
-            :selected="selectedTechnologies"
-            @selected="setSelectedTechnologies"
-        />
+        <div v-if="showFilters">
+            <technologies-list
+                :list="allTechnologies"
+                :selected="selectedTechnologies"
+                @selected="setSelectedTechnologies"
+            />
 
-        <categories-list
-            :list="allCategories"
-            :selected="selectedCategories"
-            @selected="setSelectedCategories"
-        />
+            <categories-list
+                :list="allCategories"
+                :selected="selectedCategories"
+                @selected="setSelectedCategories"
+            />
+        </div>
         <b-row
             cols="1"
             cols-md="2"
@@ -32,7 +34,7 @@
 
                     <b-card-body>
                         <b-card-title
-                            tag="h3"
+                            :title-tag="titleTag"
                             class="creations-list-item-title h4"
                         >
                             {{ creation.node.title }}
@@ -90,6 +92,14 @@ export default {
         list: {
             type: Array,
             required: true,
+        },
+        titleTag: {
+            type: String,
+            required: true,
+        },
+        showFilters: {
+            type: Boolean,
+            default: false,
         },
     },
     data() {

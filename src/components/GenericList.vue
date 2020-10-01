@@ -25,7 +25,7 @@
 
                 <b-card-body>
                     <b-card-title
-                        tag="h3"
+                        title-tag="h3"
                         :class="`${listName}-list-item-title h5`"
                     >
                         {{ tech.node.title }}

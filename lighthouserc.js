@@ -6,6 +6,8 @@ module.exports = {
                 'unused-css-rules': ['warn', { maxLength: 0 }],
                 'unused-javascript': ['warn', { maxLength: 0 }],
                 'without-javascript': 'off',
+                'unsized-images': 'off',
+                'color-contrast': ['warn', { minScore: 0.9 }],
             },
         },
         collect: {

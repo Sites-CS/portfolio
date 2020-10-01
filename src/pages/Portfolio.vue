@@ -2,6 +2,8 @@
     <layout>
         <creations-list
             :list="allCreations"
+            :show-filters="true"
+            title-tag="h2"
         />
     </layout>
 </template>
