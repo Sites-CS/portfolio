@@ -1,13 +1,13 @@
 <template>
     <div>
         <div v-if="showFilters">
-            <technologies-list
+            <technologies-filters
                 :list="allTechnologies"
                 :selected="selectedTechnologies"
                 @selected="setSelectedTechnologies"
             />
 
-            <categories-list
+            <categories-filters
                 :list="allCategories"
                 :selected="selectedCategories"
                 @selected="setSelectedCategories"
@@ -73,8 +73,8 @@ import {
     BCol,
     BRow,
 } from 'bootstrap-vue'
-import TechnologiesList from '~/components/TechnologiesList.vue'
-import CategoriesList from '~/components/CategoriesList.vue'
+import TechnologiesFilters from '~/components/TechnologiesFilters.vue'
+import CategoriesFilters from '~/components/CategoriesFilters.vue'
 
 export default {
     components: {
@@ -85,8 +85,8 @@ export default {
         BCardText,
         BCol,
         BRow,
-        TechnologiesList,
-        CategoriesList,
+        TechnologiesFilters,
+        CategoriesFilters,
     },
     props: {
         list: {
@@ -153,14 +153,14 @@ export default {
             }
         },
         isElementConcerned(element) {
-            let isConcerned = false
+            let isConcerned = true
             if (this.selectedCategories) {
-                isConcerned = this.selectedCategories.some(category => {
+                isConcerned = isConcerned && this.selectedCategories.some(category => {
                     return element.node.categories.includes(this.itemToSlug(category))
                 })
             }
-            if (this.selectedTechnologies && !isConcerned) {
-                isConcerned = this.selectedTechnologies.some(technology => {
+            if (this.selectedTechnologies) {
+                isConcerned = isConcerned && this.selectedTechnologies.some(technology => {
                     return element.node.technologies.includes(this.itemToSlug(technology))
                 })
             }
@@ -188,8 +188,7 @@ export default {
                 categoriesSlug = this.selectedCategories.map(this.itemToSlug).join(',')
                 query = { categories: categoriesSlug }
             }
-            this.$router.replace({ path: 'portfolio', query })
-
+            this.$router.replace({ query })
         },
       	setSelectedTechnologies(technologies) {
             this.selectedTechnologies = technologies
