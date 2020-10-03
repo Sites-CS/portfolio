@@ -1,18 +1,21 @@
 <template>
     <div>
-        <div v-if="showFilters">
+        <div>
             <technologies-filters
-                :list="allTechnologies"
+                v-if="technologies"
+                :list="technologies"
                 :selected="selectedTechnologies"
                 @selected="setSelectedTechnologies"
             />
 
             <categories-filters
-                :list="allCategories"
+                v-if="categories"
+                :list="categories"
                 :selected="selectedCategories"
                 @selected="setSelectedCategories"
             />
         </div>
+
         <b-row
             cols="1"
             cols-md="2"
@@ -89,17 +92,21 @@ export default {
         CategoriesFilters,
     },
     props: {
+        categories: {
+            type: Array,
+            default: null,
+        },
         list: {
             type: Array,
             required: true,
         },
+        technologies: {
+            type: Array,
+            default: null,
+        },
         titleTag: {
             type: String,
             required: true,
-        },
-        showFilters: {
-            type: Boolean,
-            default: false,
         },
     },
     data() {
@@ -121,12 +128,6 @@ export default {
 
             return filteredList
         },
-        allTechnologies() {
-            return (!this.$page.technologies || !this.$page.technologies.edges) ? [] : this.$page.technologies.edges
-        },
-        allCategories() {
-            return (!this.$page.categories || !this.$page.categories.edges) ? [] : this.$page.categories.edges
-        },
     },
     created() {
         const splittedTechnologies = (this.$route.query && this.$route.query.technologies) ?  this.$route.query.technologies.split(',') : null
@@ -137,7 +138,7 @@ export default {
     methods: {
         fillListFromParams(splittedTechnologies, splittedCategories) {
             if (splittedTechnologies) {
-                this.selectedTechnologies = this.$page.technologies.edges.filter(element => {
+                this.selectedTechnologies = this.technologies.filter(element => {
                     return splittedTechnologies.some(technology => {
                         return element.node.fileInfo.name.includes(technology)
                     })
@@ -145,7 +146,7 @@ export default {
             }
 
             if (splittedCategories) {
-                this.selectedCategories = this.$page.categories.edges.filter(element => {
+                this.selectedCategories = this.categories.filter(element => {
                     return splittedCategories.some(technology => {
                         return element.node.fileInfo.name.includes(technology)
                     })
@@ -173,22 +174,26 @@ export default {
             this.selectedTechnologies = this.selectedTechnologies && this.selectedTechnologies.length > 0 ? this.selectedTechnologies : null
             this.selectedCategories = this.selectedCategories && this.selectedCategories.length > 0 ? this.selectedCategories : null
 
-            let technologiesSlug
-            let categoriesSlug
             let query
 
             if (this.selectedCategories && this.selectedTechnologies) {
-                technologiesSlug = this.selectedTechnologies.map(this.itemToSlug).join(',')
-                categoriesSlug = this.selectedCategories.map(this.itemToSlug).join(',')
-                query = { technologies: technologiesSlug , categories: categoriesSlug }
+                query = {
+                    technologies: this.selectedTechnologies.map(this.itemToSlug).join(','),
+                    categories: this.selectedCategories.map(this.itemToSlug).join(','),
+                }
             } else if (this.selectedTechnologies) {
-                technologiesSlug = this.selectedTechnologies.map(this.itemToSlug).join(',')
-                query = { technologies: technologiesSlug }
+                query = {
+                    technologies: this.selectedTechnologies.map(this.itemToSlug).join(',')
+                }
             } else if (this.selectedCategories) {
-                categoriesSlug = this.selectedCategories.map(this.itemToSlug).join(',')
-                query = { categories: categoriesSlug }
+                query = {
+                    categories: this.selectedCategories.map(this.itemToSlug).join(',')
+                }
             }
+
             this.$router.replace({ query })
+                // Make "NavigationDuplicated: Avoided redundant navigation to current location" errors silent
+                .catch(() => {})
         },
       	setSelectedTechnologies(technologies) {
             this.selectedTechnologies = technologies

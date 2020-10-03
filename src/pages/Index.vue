@@ -28,7 +28,11 @@ export default {
             return this.$page.about.edges[0].node
         },
         allCreations() {
-            return (!this.$page.portfolioItems || !this.$page.portfolioItems.edges) ? [] : this.$page.portfolioItems.edges
+            if (this.$page.portfolioItems && this.$page.portfolioItems.edges) {
+                return this.$page.portfolioItems.edges
+            }
+
+            return []
         },
     },
 }

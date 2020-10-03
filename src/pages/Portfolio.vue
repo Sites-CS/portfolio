@@ -1,6 +1,8 @@
 <template>
     <layout>
         <creations-list
+            :technologies="allTechnologies"
+            :categories="allCategories"
             :list="allCreations"
             :show-filters="true"
             title-tag="h2"
@@ -15,15 +17,27 @@ export default {
     components: {
         CreationsList,
     },
-    data() {
-        return {
-            isFiltered: Boolean,
-            default: false,
-        }
-    },
     computed: {
+        allCategories() {
+            if (this.$page.categories && this.$page.categories.edges && this.$page.categories.edges.length > 0) {
+                return this.$page.categories.edges
+            }
+
+            return null
+        },
         allCreations() {
-            return (!this.$page.portfolioItems || !this.$page.portfolioItems.edges) ? [] : this.$page.portfolioItems.edges
+            if (this.$page.portfolioItems && this.$page.portfolioItems.edges) {
+                return this.$page.portfolioItems.edges
+            }
+
+            return []
+        },
+        allTechnologies() {
+            if (this.$page.technologies && this.$page.technologies.edges && this.$page.categories.edges.length > 0) {
+                return this.$page.technologies.edges
+            }
+
+            return null
         },
     },
 }
