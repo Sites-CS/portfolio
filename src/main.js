@@ -13,11 +13,21 @@ import VueScrollTo from 'vue-scrollto'
 
 import DefaultLayout from '~/layouts/Default.vue'
 
-export default function (Vue, { appOptions }) {
+export default function (Vue, { appOptions, router }) {
     Vue.use(VueScrollTo)
 
     // Set default layout as a global component
     Vue.component('Layout', DefaultLayout)
 
     appOptions.i18n.setLocaleMessage('fr', require('~/locales/fr.json'))
+
+    router.options.scrollBehavior = (to, from, savedPosition) => {
+        if (from && Object.keys(to.query).length && to.fullPath.split('?')[0] == from.fullPath.split('?')[0]) {
+            return
+        } else if (savedPosition) {
+            return savedPosition
+        }
+
+        return { x: 0, y: 0 }
+    }
 }
