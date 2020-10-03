@@ -3,7 +3,7 @@
         :label="labelName"
     >
         <b-form-checkbox-group
-            :value="selected"
+            :checked="selected"
             :options="options"
             :class="`${listName}-list`"
             @input="emitSelected"
