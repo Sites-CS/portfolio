@@ -48,7 +48,7 @@ export default {
             }
         }
     }
-    portfolioItems: allPortfolioItem (sortBy: "featured", limit: 5)  {
+    portfolioItems: allPortfolioItem (sortBy: "featured", limit: 6)  {
       edges {
         node {
           id
