@@ -33,7 +33,7 @@
         <g-image
             v-for="(screenshot, index) in $page.entry.screenshots"
             :key="`portfolio-item-screenshot-${index}`"
-            class="portfolio-item-screenshot"
+            class="portfolio-item-screenshot d-block mb-3 mx-auto"
             :src="screenshot"
         />
     </layout>
