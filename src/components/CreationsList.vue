@@ -183,11 +183,11 @@ export default {
                 }
             } else if (this.selectedTechnologies) {
                 query = {
-                    technologies: this.selectedTechnologies.map(this.itemToSlug).join(',')
+                    technologies: this.selectedTechnologies.map(this.itemToSlug).join(','),
                 }
             } else if (this.selectedCategories) {
                 query = {
-                    categories: this.selectedCategories.map(this.itemToSlug).join(',')
+                    categories: this.selectedCategories.map(this.itemToSlug).join(','),
                 }
             }
 
@@ -195,11 +195,11 @@ export default {
                 // Make "NavigationDuplicated: Avoided redundant navigation to current location" errors silent
                 .catch(() => {})
         },
-      	setSelectedTechnologies(technologies) {
+        setSelectedTechnologies(technologies) {
             this.selectedTechnologies = technologies
             this.addFilters()
         },
-      	setSelectedCategories(categories) {
+        setSelectedCategories(categories) {
             this.selectedCategories = categories
             this.addFilters()
         },
