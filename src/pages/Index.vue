@@ -7,7 +7,6 @@
 
             <creations-list
                 :list="allCreations"
-                :show-filters="false"
                 title-tag="h2"
             />
         </section>

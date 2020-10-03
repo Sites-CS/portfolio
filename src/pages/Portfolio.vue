@@ -4,7 +4,6 @@
             :technologies="allTechnologies"
             :categories="allCategories"
             :list="allCreations"
-            :show-filters="true"
             title-tag="h2"
         />
     </layout>
