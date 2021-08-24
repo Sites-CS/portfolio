@@ -18,7 +18,7 @@
     "gridsome": "^0.7.23",
     "gridsome-plugin-i18n": "^1.6.0",
     "gridsome-plugin-netlify-cms": "^1.0.9",
-    "gridsome-plugin-netlify-cms-paths": "github:Sites-CS/gridsome-plugin-netlify-cms-paths",
+    "gridsome-plugin-netlify-cms-paths": "git+https://git@github.com/Sites-CS/gridsome-plugin-netlify-cms-paths",
     "gridsome-plugin-pwa": "0.0.18",
     "jest": "^26.4.2",
     "netlify-cms": "^2.10.56",
